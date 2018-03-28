@@ -1,0 +1,33 @@
+import UIKit
+
+class pauseBTN: UIButton {
+
+   var isPaused = true
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initButton()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initButton()
+    }
+    
+    func initButton()
+    {
+        addTarget(self, action: #selector(pauseBTN.buttonPressed), for: .touchUpInside)
+    }
+    
+    func buttonPressed()
+    {
+        activateButton(bool: !isPaused)
+    }
+    
+    func activateButton(bool: Bool)
+    {
+        isPaused = bool
+        let title = bool ? "Paused" : "Play"
+    }
+
+}
